@@ -1,6 +1,8 @@
 import { useState , useEffect} from "react";
+import { useDispatch } from "react-redux";
+import { addJob } from "../app/slices/job.slice";
 const Job = ()=>{
-
+    const dispatch = useDispatch();
     const [ jobs, setJobs ] = useState([]);
     const [ inputs, setInputs ] = useState({pages:"", copies:"", type:"copy"});
 
@@ -16,37 +18,35 @@ const Job = ()=>{
     }
 
     const handleChange = (e)=>{
-        if(inputs.pages && inputs.type){
-            setInputs({...inputs,[e.target.id]:e.target.value});
-        }
+        
+        setInputs({...inputs,[e.target.id]:e.target.value});
+        
     }
 
     const addToJobs = (e)=>{
         e.preventDefault();
         if(inputs.type === "copy"){
-            setJobs([...jobs, {pages: inputs.pages, type: inputs.type, copies: inputs.copies, price:((inputs.pages*2)*(inputs.copies))}]);
+            dispatch(addJob({pages: inputs.pages, type: inputs.type, copies: inputs.copies, price:((inputs.pages*2)*(inputs.copies))}))
         }
         if(inputs.type === "print"){
-            setJobs([...jobs, {pages: inputs.pages, type: inputs.type, copies: inputs.copies, price:((inputs.pages*3)*(inputs.copies))}]);
+            dispatch(addJob({pages: inputs.pages, type: inputs.type, copies: inputs.copies, price:((inputs.pages*3)*(inputs.copies))}))
         }
         if(inputs.type === "scan"){
-            setJobs([...jobs, {pages: inputs.pages, type: inputs.type, price:((inputs.pages*4))}]);
+            dispatch(addJob({pages: inputs.pages, type: inputs.type, price:((inputs.pages*4))}))
         }
         if(inputs.type === "email" ){
-            setJobs([...jobs, {pages: inputs.pages, type: inputs.type, price:((inputs.pages*4)+8)}]);
+            dispatch(addJob({pages: inputs.pages, type: inputs.type, price:((inputs.pages*4)+8)}))
         }
     }
 
     useEffect(()=>{
         
-        console.log(inputs);
-        console.log(jobs);
-    },[inputs, jobs]);
+    },[]);
     return(
-        <div className="mt-2 flex justify-center p-2">
-            <div className="border-solid border-b-4 p-4">
+        <div className="">
+            <div className="">
                 <form >
-                    <div className="flex flex-col">
+                    <div className="">
                         <div className="flex justify-between align-center">
                             <label>Pages</label>
                             <input  onChange={handleChange} id="pages" className="border-1 border-black border-solid" type="number" placeholder="number of pages"/>
