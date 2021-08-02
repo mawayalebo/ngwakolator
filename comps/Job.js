@@ -44,20 +44,20 @@ const Job = ()=>{
     },[]);
     return(
         <div className="">
-            <div className="">
+            <div className="border-solid border-[purple] border-2 p-5 shadow-lg rounded-lg bg-white">
                 <form >
                     <div className="">
-                        <div className="flex justify-between align-center">
-                            <label>Pages</label>
-                            <input  onChange={handleChange} id="pages" className="border-1 border-black border-solid" type="number" placeholder="number of pages"/>
+                        <div className="flex align-center justify-between bg-[purple] p-2 text-white rounded-2xl m-2">
+                            <label>Pages:</label>
+                            <input  onChange={handleChange} id="pages" className="flex-grow" type="number" placeholder="number of pages"/>
                         </div>
-                        <div className={`flex justify-between align-center ${checkType(inputs.type)}`}>
-                            <label>Copies</label>
-                            <input onChange={handleChange} id="copies" className="border-1 border-black border-solid" type="number" placeholder="number of copies"/>
+                        <div className={`flex align-center justify-between bg-[purple] p-2 text-white rounded-2xl m-2 ${checkType(inputs.type)}`}>
+                            <label>Copies:</label>
+                            <input onChange={handleChange} id="copies" className="flex-grow" type="number" placeholder="number of copies"/>
                         </div>
-                        <div className="flex justify-between align-center">
-                            <label>Job Type</label>
-                            <select onChange={handleChange} id="type" value={inputs.type}>
+                        <div className="flex align-center justify-between bg-[purple] p-2 rounded-2xl m-2">
+                            <label className="text-white">Job Type</label>
+                            <select className="flex-grow text-black" onChange={handleChange} id="type" value={inputs.type}>
                                 <option value="copy">Copy</option>
                                 <option value="print">Print</option>
                                 <option value="scan">Scan</option>
