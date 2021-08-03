@@ -1,7 +1,11 @@
+import Image from "next/image";
+import logo from "../public/logo.png";
+
 const Header =()=>{
     return(
-        <div className="flex justify-start mb-5 bg-[purple] p-2 rounded-2xl align-center">
-            <span className="text-4xl text-white">Ngwakolator</span>
+        <div className="flex justify-center mb-5 p-5 rounded-3xl align-center  bg-[purple]">
+            <Image src={logo} width={50} height={50} className="object-contain"/>
+            <span className="text-4xl text-white font-bold mx-5">Ngwakolator</span>
         </div>
     )
 }
