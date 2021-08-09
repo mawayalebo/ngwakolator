@@ -4,7 +4,7 @@ import Job from '../comps/Job';
 import Jobs from '../comps/Jobs';
 export default function Home() {
   return (
-    <div className="flex flex-col bg-[whitesmoke] h-screen p-5">
+    <div className="relative flex flex-col bg-[whitesmoke] h-screen font-arial">
       <Head>
         <title>NTE Calculator</title>
       </Head>

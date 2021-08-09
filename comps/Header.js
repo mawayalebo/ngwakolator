@@ -1,11 +1,16 @@
 import Image from "next/image";
 import logo from "../public/logo.png";
 
-const Header =()=>{
+const Header = ()=>{
     return(
-        <div className="flex justify-center mb-5 p-5 rounded-3xl align-center  bg-[purple]">
-            <Image src={logo} width={50} height={50} className="object-contain"/>
-            <span className="text-4xl text-white font-bold mx-5">Ngwakolator</span>
+        <div className="fixed w-full top-0 flex p-5 rounded-b-[60px] h-[30vh] align-center  bg-black z-10">
+            <div className="relative h-[50px] w-[50px]">
+                <Image src={logo} layout="fill"objectFit="contain"/>
+            </div>
+            <div>
+                <span className="text-3xl text-white mx-5">Ngwakolator</span>
+            </div>
+            
         </div>
     )
 }
