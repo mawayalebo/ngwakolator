@@ -25,23 +25,22 @@ const Job = ()=>{
 
     const addToJobs = (e)=>{
         e.preventDefault();
+        const id = Math.random();
         if(inputs.type === "copy" && inputs.pages && inputs.copies){
-            dispatch(addJob({pages: inputs.pages, type: inputs.type, copies: inputs.copies, price:((inputs.pages*2)*(inputs.copies))}))
+
+            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, copies: inputs.copies, price:((inputs.pages*2)*(inputs.copies))}))
         }
         if(inputs.type === "print" && inputs.pages && inputs.copies){
-            dispatch(addJob({pages: inputs.pages, type: inputs.type, copies: inputs.copies, price:((inputs.pages*3)*(inputs.copies))}))
+            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, copies: inputs.copies, price:((inputs.pages*3)*(inputs.copies))}))
         }
         if(inputs.type === "scan" && inputs.pages){
-            dispatch(addJob({pages: inputs.pages, type: inputs.type, price:((inputs.pages*4))}))
+            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, price:((inputs.pages*4))}))
         }
         if(inputs.type === "email" && inputs.pages){
-            dispatch(addJob({pages: inputs.pages, type: inputs.type, price:((inputs.pages*4)+8)}))
+            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, price:((inputs.pages*4)+8)}))
         }
     }
 
-    useEffect(()=>{
-        
-    },[]);
     return(
         <div className="fixed p-10 flex items-center justify-center w-full top-[10vh] z-10">
             <div className="border-solid border-[grey] border-2 p-5 shadow-xl shadow-black rounded-lg bg-white ">

@@ -12,25 +12,13 @@ export const jobSlice = createSlice({
             state.jobs = [...state.jobs, action.payload]
         },
         removeJob: (state, action)=>{
-            const unWantedJob = state.jobs.findIndex((job)=>{
-                return job.id == action.payload.id ;
+            const unWantedJob = action.payload;
+            const newBasketJobs = state.jobs.filter((job)=>{
+                return job.id !== unWantedJob
             });
 
-            const newJobs = [...state.jobs];
-
-            if(unWantedJob >= 0){
-                newJobs.splice(unWantedJob, 1);
-            }
-
-            state.Jobs = newJobs;
-
-            /*const unWantedItem = action.payload.id;
-
-            const newBasketItems = state.items.filter((item)=>{
-                return item.id !== unWantedItem
-            });
-
-            state.items = newBasketItems;*/
+            state.jobs = newBasketJobs;
+        
         }
     }
 });
