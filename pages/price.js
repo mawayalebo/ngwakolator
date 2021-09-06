@@ -21,18 +21,13 @@ const Price = () => {
     return ( 
         <div className="h-screen bg-blue-700">
             <Header/>
-            <div className="fixed overflow-x-scroll">
+            <div className="fixed mt-[30vh]">
                 {
                     services.map((service, index) => {
                         return (
-                            <div className="flex justify-between items-center p-4" key={index}>
-                                <div className="flex flex-col">
-                                    <div className="text-2xl">{service.jobtype}</div>
-                                    <div className="text-xl">{service.price}</div>
-                                </div>
-                                <div className="flex flex-col">
-                                    <div className="text-2xl">{service.jobtype}</div>
-                                    <div className="text-xl">{service.price}</div>
+                            <div className="flex p-4 flex-col bg-gray-300 m-5 rounded-full" key={index}>
+                                <div>
+                                    <h1 className="text-white text-2xl">{service.jobtype}</h1>
                                 </div>
                             </div>
                         )
