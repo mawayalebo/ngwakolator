@@ -4,7 +4,7 @@ import { addJob } from "../app/slices/job.slice";
 const Job = ()=>{
     const dispatch = useDispatch();
     const [ jobs, setJobs ] = useState([]);
-    const [ inputs, setInputs ] = useState({pages:"", copies:"", type:"copy"});
+    const [ inputs, setInputs ] = useState({pages:"", copies:"", type:"copy-black"});
 
     //change display based on job type
     const checkType = (type)=>{
