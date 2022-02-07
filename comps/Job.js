@@ -51,7 +51,8 @@ const Job = ()=>{
     }
 
     return(
-        <div className="fixed p-10 flex items-center justify-center w-full top-[10vh] z-10">
+        <div className="fixed p-10 flex flex-col items-center justify-center w-full top-[10vh] z-10">
+            
             <div className="border-solid border-[grey] border-2 p-5 shadow-xl shadow-black rounded-lg bg-white ">
                 <form >
                     <div className="">
@@ -66,6 +67,8 @@ const Job = ()=>{
                                 <option className="flex-shrink bg-[black]" value="scan">Scanning</option>
                                 <option className="flex-shrink bg-[black]" value="typing">Typing</option>
                                 <option className="flex-shrink bg-[black]" value="email+scan">Email + Scanning</option>
+                                <option className="flex-shrink bg-[black]" value="email">Email only</option>
+                                <option className="flex-shrink bg-[black]" value="lamination">Lamination</option>
                             </select>
                         </div>
                         <label>Pages</label>
@@ -84,6 +87,15 @@ const Job = ()=>{
                         </div>
                     </div>
                 </form>
+            </div>
+            <div className=" py-1 grid grid-cols-2 gap-4">
+                <div className="rounded-full px-5 bg-blue-900">
+                    <span className="text-white whitespace-nowrap">price-list</span>
+                </div>
+                <div className="rounded-full px-5 bg-yellow-400">
+                    <span className="text-black whitespace-nowrap">Invoice</span>
+                </div>
+                
             </div>
         </div>
     )

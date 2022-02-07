@@ -10,7 +10,7 @@ export default function Home() {
   
   setTimeout(() => {
     setChanger(false);
-  }, 5000);
+  }, 3000);
 
   
   return (

@@ -19,16 +19,14 @@ const Price = () => {
 
     ];
     return ( 
-        <div className="h-screen bg-blue-700">
+        <div>
             <Header/>
-            <div className="fixed mt-[30vh]">
+            <div className=" mt-[33vh]">
                 {
                     services.map((service, index) => {
                         return (
-                            <div className="flex p-4 flex-col bg-gray-300 m-5 rounded-full" key={index}>
-                                <div>
-                                    <h1 className="text-white text-2xl">{service.jobtype}</h1>
-                                </div>
+                            <div className="flex justify-center items-center p-4 flex-col bg-gray-300 m-5 rounded-full" key={index}>
+                                <h1 className="text-black text-lg :sm:text-xl md:text-2xl lg:text-3xl">{service.jobtype} | R{service.price}</h1>
                             </div>
                         )
                         })
