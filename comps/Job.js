@@ -1,11 +1,12 @@
 import { useState , useEffect} from "react";
 import { useDispatch } from "react-redux";
 import { addJob } from "../app/slices/job.slice";
+import { useRouter } from 'next/router';
 const Job = ()=>{
     const dispatch = useDispatch();
     const [ jobs, setJobs ] = useState([]);
     const [ inputs, setInputs ] = useState({pages:"", copies:"", type:"copy-black"});
-
+    const router = useRouter()
     //change display based on job type
     const checkType = (type)=>{
         if(type==="copy-black" || type==="copy-colour"){
@@ -28,25 +29,25 @@ const Job = ()=>{
         const id = Math.random();
         if(inputs.type === "copy-black" && inputs.pages && inputs.copies){
 
-            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, copies: inputs.copies, price:((inputs.pages*2)*(inputs.copies))}))
+            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, copies: inputs.copies, price:((inputs.pages*2)*(inputs.copies)), uPrice:2}))
         }
         if(inputs.type === "print-black" && inputs.pages && inputs.copies){
-            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, copies: inputs.copies, price:((inputs.pages*3)*(inputs.copies))}))
+            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, copies: inputs.copies, price:((inputs.pages*3)*(inputs.copies)), uPrice:3}))
         }
         if(inputs.type === "scan" && inputs.pages){
-            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, price:((inputs.pages*4))}))
+            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, price:((inputs.pages*4)), uPrice:4}))
         }
         if(inputs.type === "email+scan" && inputs.pages){
-            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, price:((inputs.pages*4)+8)}))
+            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, price:((inputs.pages*4)+8), uPrice:4}))
         }
         if(inputs.type === "copy-colour" && inputs.pages && inputs.copies){
-            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, copies: inputs.copies, price:((inputs.pages*5)*(inputs.copies))}))
+            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, copies: inputs.copies, price:((inputs.pages*5)*(inputs.copies)), uPrice:5}))
         }
         if(inputs.type === "print-colour" && inputs.pages && inputs.copies){
-            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, copies: inputs.copies, price:((inputs.pages*7)*(inputs.copies))}))
+            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, copies: inputs.copies, price:((inputs.pages*7)*(inputs.copies)), uPrice:7}))
         }
         if(inputs.type === "typing" && inputs.pages){
-            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, price:((inputs.pages*15))}))
+            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, price:((inputs.pages*15)), uPrice:15}))
         }
     }
 
@@ -89,10 +90,10 @@ const Job = ()=>{
                 </form>
             </div>
             <div className=" py-1 grid grid-cols-2 gap-4">
-                <div className="rounded-full px-5 bg-blue-900">
+                <div onClick={()=>router.push("/price")} className="rounded-full px-5 bg-blue-900 hover:cursor-pointer hover:transition hover:scale-125 duration-300 ease-out delay-200">
                     <span className="text-white whitespace-nowrap">price-list</span>
                 </div>
-                <div className="rounded-full px-5 bg-yellow-400">
+                <div onClick={()=>router.push("/invoice")} className="rounded-full px-5 bg-yellow-400 hover:cursor-pointer hover:transition hover:scale-125 duration-300 ease-out delay-200">
                     <span className="text-black whitespace-nowrap">Invoice</span>
                 </div>
                 
