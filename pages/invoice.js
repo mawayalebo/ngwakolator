@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import InvoiceBody from '../comps/InvoiceBody';
+import InvoiceFooter from '../comps/InvoiceFooter';
 const Invoice = () => {
     const [invoiceNo, setInvoiceNo] = useState(uuidv4());
     const date = new Date
@@ -37,6 +38,7 @@ const Invoice = () => {
             </div>
             {/* invoice body */}
             <InvoiceBody/>
+            <InvoiceFooter/>
         </div>
      );
 }
