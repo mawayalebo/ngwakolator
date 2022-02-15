@@ -15,16 +15,18 @@ const InvoiceBody = () => {
                 jobs && jobs.map((job, index) => (
                     <div key={index} className="grid grid-cols-4 gap-4">
                         <span>{job.type}</span>
-                        <span>R{job.uPrice}</span>
+                        <span>
+                            {job.type === 'email+scan'? 'R4 (R8)': 'R'+job.uPrice}
+                        </span>
                         <span>
                             {
-                                job.pages && job.copies > 1 ? parseInt(job.pages) + parseInt(job.copies) : parseInt(job.pages)
+                                job.pages && job.copies > 1 ? parseInt(job.pages) * parseInt(job.copies) : parseInt(job.pages)
                             }
                             {
                                 job.pages && job.copies === false ? job.pages : null
                             }
                         </span>
-                        <span>{job.price}</span>
+                        <span className="font-bold">R{job.price}</span>
                         
                     </div>
                 ))
