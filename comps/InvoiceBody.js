@@ -14,7 +14,7 @@ const InvoiceBody = () => {
             {
                 jobs && jobs.map((job, index) => (
                     <div key={index} className="grid grid-cols-4 gap-4">
-                        <span>{job.type}</span>
+                        <span className="whitespace-wrap">{job.type}</span>
                         <span>
                             {job.type === 'email+scan'? 'R4 (R8)': 'R'+job.uPrice}
                         </span>
@@ -31,6 +31,14 @@ const InvoiceBody = () => {
                     </div>
                 ))
             }
+            <div className="flex flex-col justify-end">
+                <div className="border-b-solid border-b-2 border-b-black mt-5">
+                    <span className="font-bold">Grand total</span>
+                </div>
+                <div className="bg-gray-400 p-4 flex justify-end">
+                    <span className="font-bold">R{jobs.reduce((acc, job) => acc + job.price, 0)}</span>
+                </div>
+            </div>
         </div>
      );
 }
