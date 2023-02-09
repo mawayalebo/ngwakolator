@@ -47,7 +47,13 @@ const Job = ()=>{
             dispatch(addJob({id, pages: inputs.pages, type: inputs.type, copies: inputs.copies, price:((inputs.pages*7)*(inputs.copies)), uPrice:7}))
         }
         if(inputs.type === "typing" && inputs.pages){
-            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, price:((inputs.pages*15)), uPrice:15}))
+            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, price:((inputs.pages*30)), uPrice:30}))
+        }
+        if(inputs.type === "lamination" && inputs.pages){
+            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, price:((inputs.pages*20)), uPrice:20}))
+        }
+        if(inputs.type === "email" && inputs.pages){
+            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, price:((inputs.pages*8)), uPrice:8}))
         }
     }
 
