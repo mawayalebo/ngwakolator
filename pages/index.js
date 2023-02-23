@@ -6,12 +6,7 @@ import Jobs from '../comps/Jobs';
 import Landing from '../comps/Landing';
 import SideNav from '../comps/sideNav';
 export default function Home() {
-  const [changer, setChanger] = useState(true);
   
-  setTimeout(() => {
-    setChanger(false);
-  }, 3000);
-
   
   return (
     
@@ -19,18 +14,11 @@ export default function Home() {
       <Head>
         <title>NTE Calculator</title>
       </Head>
-      {
-        changer?(
-          <Landing/>
-        ):(
-          <div>
-            <Header/>
-            <Job/>
-            <Jobs/>
-          </div>
-        )
-      }
-      
+      <div>
+        <Header/>
+          <Job/>
+          <Jobs/>
+      </div>  
     </div>
   )
 }
