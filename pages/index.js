@@ -12,6 +12,7 @@ export default function Home() {
     
     <div className="relative flex flex-col bg-[whitesmoke] h-screen font-arial">
       <Head>
+        <link rel="shortcut icon" href="/logo.png" type="image/x-icon" />
         <title>NTE Calculator</title>
       </Head>
       <div>
