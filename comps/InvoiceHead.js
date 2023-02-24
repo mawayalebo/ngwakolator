@@ -26,10 +26,10 @@ function InvoiceHead() {
                     <div>
                         <div className='flex flex-col'>
                             <span className='text-xs font-bold whitespace-nowrap'>Invoice Number</span>
-                            <span className='text-xs'>{invoiceNo}</span>
+                            <span className='text-xs whitespace-nowrap'>{invoiceNo}</span>
                         </div>
                         <div className='flex flex-col'>
-                            <span className='text-xs font-bold' >Date</span>
+                            <span className='text-xs font-bold whitespace-nowrap' >Date</span>
                             <span className='text-xs whitespace-nowrap' >{ invTime.getUTCDate() } - { invTime.getUTCMonth()+1} - {invTime.getFullYear()}</span>
                         </div>
                     </div>
