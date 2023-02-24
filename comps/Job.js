@@ -1,10 +1,10 @@
-import { useState , useEffect} from "react";
-import { useDispatch } from "react-redux";
-import { addJob } from "../app/slices/job.slice";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addJob , selectJobs} from "../app/slices/job.slice";
 import { useRouter } from 'next/router';
 const Job = ()=>{
     const dispatch = useDispatch();
-    const [ jobs, setJobs ] = useState([]);
+    const jobs = useSelector(selectJobs);
     const [ inputs, setInputs ] = useState({pages:"", copies:"", type:"copy-black"});
     const router = useRouter()
     //change display based on job type
@@ -29,31 +29,31 @@ const Job = ()=>{
         const id = Math.random();
         if(inputs.type === "copy-black" && inputs.pages && inputs.copies){
 
-            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, copies: inputs.copies, price:((inputs.pages*2)*(inputs.copies)), uPrice:2}))
+            jobs.length < 11 && dispatch(addJob({id, pages: inputs.pages, type: inputs.type, copies: inputs.copies, price:((inputs.pages*2)*(inputs.copies)), uPrice:2}))
         }
         if(inputs.type === "print-black" && inputs.pages && inputs.copies){
-            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, copies: inputs.copies, price:((inputs.pages*3)*(inputs.copies)), uPrice:3}))
+            jobs.length < 11 && dispatch(addJob({id, pages: inputs.pages, type: inputs.type, copies: inputs.copies, price:((inputs.pages*3)*(inputs.copies)), uPrice:3}))
         }
         if(inputs.type === "scan" && inputs.pages){
-            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, price:((inputs.pages*4)), uPrice:4}))
+            jobs.length < 11 && dispatch(addJob({id, pages: inputs.pages, type: inputs.type, price:((inputs.pages*4)), uPrice:4}))
         }
         if(inputs.type === "email+scan" && inputs.pages){
-            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, price:((inputs.pages*4)+8), uPrice:4}))
+            jobs.length < 11 &&dispatch(addJob({id, pages: inputs.pages, type: inputs.type, price:((inputs.pages*4)+8), uPrice:4}))
         }
         if(inputs.type === "copy-colour" && inputs.pages && inputs.copies){
-            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, copies: inputs.copies, price:((inputs.pages*5)*(inputs.copies)), uPrice:5}))
+            jobs.length < 11 && dispatch(addJob({id, pages: inputs.pages, type: inputs.type, copies: inputs.copies, price:((inputs.pages*5)*(inputs.copies)), uPrice:5}))
         }
         if(inputs.type === "print-colour" && inputs.pages && inputs.copies){
-            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, copies: inputs.copies, price:((inputs.pages*7)*(inputs.copies)), uPrice:7}))
+            jobs.length < 11 && dispatch(addJob({id, pages: inputs.pages, type: inputs.type, copies: inputs.copies, price:((inputs.pages*7)*(inputs.copies)), uPrice:7}))
         }
         if(inputs.type === "typing" && inputs.pages){
-            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, price:((inputs.pages*30)), uPrice:30}))
+            jobs.length < 11 && dispatch(addJob({id, pages: inputs.pages, type: inputs.type, price:((inputs.pages*30)), uPrice:30}))
         }
         if(inputs.type === "lamination" && inputs.pages){
-            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, price:((inputs.pages*20)), uPrice:20}))
+            jobs.length < 11 && dispatch(addJob({id, pages: inputs.pages, type: inputs.type, price:((inputs.pages*20)), uPrice:20}))
         }
         if(inputs.type === "email" && inputs.pages){
-            dispatch(addJob({id, pages: inputs.pages, type: inputs.type, price:((inputs.pages*8)), uPrice:8}))
+            jobs.length < 11 && dispatch(addJob({id, pages: inputs.pages, type: inputs.type, price:((inputs.pages*8)), uPrice:8}))
         }
     }
 
