@@ -8,7 +8,7 @@ const Landing = () => {
             
             
             <div className="top-100 flex justify-center">
-                <Image src={"/ngwako technical enterprises logo.png"} width={350} height={150}/>
+                <Image src={"/ngwako technical enterprises logo.png"} width={400} height={150}/>
             </div> 
             <div className="flex flex-col mt-5">
                 <h2 className="text-black text-center">a Lebogang Mawaya build</h2>
