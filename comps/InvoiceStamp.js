@@ -10,14 +10,14 @@ function InvoiceStamp() {
     ]);
 
     const [rotations, setRotations] = useState(["-rotate-12", "rotate-0", "rotate-12","rotate-45", "rotate-3","-rotate-12", "-rotate-3","-rotate-45" , "rotate-6", "-rotate-6"]);
-    const [reflect, setReflect] = useState(["-", ""]);
     
+    const [justify, setJustify] = useState(["justify-start", "justify-end", "justify-center", "justify-between"])
     return ( 
         <div className="mt-24">
-            <div className="flex w-full justify-end">
+            <div className={`flex w-full ${justify[Math.floor(Math.random() * justify.length)]}`}>
                 <img src={stamps[Math.floor(Math.random() * stamps.length)]} 
                     alt="invoice stamp" 
-                    className={rotations[Math.floor(Math.random() * rotations.length)]}
+                    className={`${rotations[Math.floor(Math.random() * rotations.length)]} mix-blend-multiply`}
                     width={300} height={100}
                 />
             </div>
