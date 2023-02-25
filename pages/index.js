@@ -13,7 +13,7 @@ export default function Home() {
     <div className="relative flex flex-col bg-[whitesmoke] h-screen font-arial">
       <Head>
         <link rel="shortcut icon" href="/logo.png" type="image/x-icon" />
-        <title>NTE Calculator</title>
+        <title>Ngwakolator - Ngwako Technical Enterprises Calculator & Invoice Maker</title>
       </Head>
       <div>
         <Header/>
