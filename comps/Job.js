@@ -108,7 +108,9 @@ const Job = ()=>{
                 <div onClick={()=>router.push("/price")} className="rounded-full px-5 bg-blue-900 hover:cursor-pointer hover:transition hover:scale-125 duration-300 ease-out delay-200">
                     <span className="text-white whitespace-nowrap">price-list</span>
                 </div>
-                <div onClick={()=>router.push("/invoice")} className="rounded-full px-5 bg-yellow-400 hover:cursor-pointer hover:transition hover:scale-125 duration-300 ease-out delay-200">
+                <div onClick={jobs.length > 0 ? ()=>router.push("/invoice") : ()=>alert("Remember you have to add a job before you generate invoice")} 
+                    className="rounded-full px-5 bg-yellow-400 hover:cursor-pointer hover:transition hover:scale-125 duration-300 ease-out delay-200"
+                >
                     <span className="text-black whitespace-nowrap">Invoice</span>
                 </div>
                 
