@@ -13,7 +13,7 @@ function InvoiceStamp() {
     
     const [justify, setJustify] = useState(["justify-start", "justify-end", "justify-center", "justify-between"])
     return ( 
-        <div className="mt-24">
+        <div className="mt-12">
             <div className={`flex w-full ${justify[Math.floor(Math.random() * justify.length)]}`}>
                 <img src={stamps[Math.floor(Math.random() * stamps.length)]} 
                     alt="invoice stamp" 
