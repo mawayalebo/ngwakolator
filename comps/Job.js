@@ -52,6 +52,12 @@ const Job = ()=>{
         if(inputs.type === "lamination" && inputs.pages){
             jobs.length < 11 && dispatch(addJob({id, pages: inputs.pages, type: inputs.type, price:((inputs.pages*20)), uPrice:20}))
         }
+        if(inputs.type === "editing" && inputs.pages){
+            jobs.length < 11 && dispatch(addJob({id, pages: inputs.pages, type: inputs.type, price:((inputs.pages*20)), uPrice:20}))
+        }
+        if(inputs.type === "cover-page" && inputs.pages){
+            jobs.length < 11 && dispatch(addJob({id, pages: inputs.pages, type: inputs.type, price:((inputs.pages*20)), uPrice:20}))
+        }
         if(inputs.type === "email" && inputs.pages){
             jobs.length < 11 && dispatch(addJob({id, pages: inputs.pages, type: inputs.type, price:((inputs.pages*8)), uPrice:8}))
         }
@@ -73,9 +79,12 @@ const Job = ()=>{
                                 <option className="flex-shrink bg-[black]" value="print-colour">Print in Colour</option>
                                 <option className="flex-shrink bg-[black]" value="scan">Scanning</option>
                                 <option className="flex-shrink bg-[black]" value="typing">Typing</option>
+                                <option className="flex-shrink bg-[black]" value="editing">Editing</option>
+                                <option className="flex-shrink bg-[black]" value="cover-page">Cover Page</option>
                                 <option className="flex-shrink bg-[black]" value="email+scan">Email + Scanning</option>
                                 <option className="flex-shrink bg-[black]" value="email">Email only</option>
                                 <option className="flex-shrink bg-[black]" value="lamination">Lamination</option>
+                                
                             </select>
                         </div>
                         <label>Pages</label>
