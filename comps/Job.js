@@ -64,7 +64,7 @@ const Job = ()=>{
     }
 
     return(
-        <div className="fixed p-10 flex flex-col items-center justify-center left-[40vw] top-[10vh] z-10">
+        <div className="fixed p-10 flex flex-col items-center justify-center left-[0vw] top-[10vh] z-10 lg:left-[40vw] sm:left-[30vw]">
             
             <div className="border-solid border-[grey] border-2 p-5 shadow-xl shadow-black rounded-lg bg-white ">
                 <form >
