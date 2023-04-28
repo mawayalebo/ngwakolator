@@ -1,5 +1,9 @@
 import Header from '../comps/Header';
+import { useRouter } from "next/router";
+
 const Price = () => {
+    const router = useRouter();
+
     const services = [
         {jobtype: "Photocopy - Black & White", price: 2},
         {jobtype: "Photocopy - Color", price: 5},
@@ -33,6 +37,12 @@ const Price = () => {
                         })
                 
                 }
+                <div 
+                className="p-5 bg-black text-white fixed z-10 top-[50vh] ml-14 rounded-full hover:cursor-pointer hover:scale-110 ease-in-out transition duration-300"
+                onClick={()=> router.push("/")}
+                >
+                    Back
+                </div>
             </div>
         </div> 
     );
