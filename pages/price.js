@@ -16,6 +16,7 @@ const Price = () => {
         {jobtype: "Pen", price: 6},
         {jobtype: "Envelope A4", price: 10},
         {jobtype: "Envelope Small", price: 6},
+        {jobtype: "Internet Session", price: 20},
 
     ];
     return ( 
